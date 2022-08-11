@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "chcluster-cc07"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "chcluster-cc07"
+  template:
+    metadata:
+      labels:
+        app: "chcluster-cc07"
+    spec:
+      containers:
+        - name: "chcluster-cc07"
+          image: "chregistry1.azurecr.io/chcluster"
+          ports:
+          - containerPort: 80
